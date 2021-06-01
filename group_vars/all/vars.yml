@@ -2,7 +2,8 @@
 # Add global settings here
 
 # aws-cloudformation role settings
-Stack.Name: aws-starter
+Stack.Name: network-resources
+Stack.Template: templates/network.yml.j2
 
 # By default the aws-cloudformation role expects your stack template 
 # to be defined in the templates/stack.yml.j2 file
