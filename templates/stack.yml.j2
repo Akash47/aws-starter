@@ -5,15 +5,13 @@ Description: AWS CloudFormation Starter Template
 Parameters:
   MyStackInput:
     Type: Number
-    Description: A random number
+    Description: cloud-formation - {{ env }}
 
 Resources:
-  StarterBucket{{ Stack.Inputs.MyStackInput }}:
-    Type: "AWS::S3::Bucket"
+  CfnLamdaBucket:
+    Type: AWS::S3::Bucket
     Properties:
       BucketName:
-        Fn::Sub: ${AWS::AccountId}-starter-bucket-${MyStackInput}
-      Tags:
-        - Key: Name
-          Value: 
-            Fn::Sub: ${AWS::AccountId}-starter-bucket-${MyStackInput}
+        Fn::Sub: ${ AWS::AccountId  }-cfn-lambda
+      VersioningConfiguration:
+        Status: Enabled
